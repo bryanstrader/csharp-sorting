@@ -20,9 +20,13 @@ namespace ConsoleApp_Sorting
 
             //FindMaxElement(numbers);
 
-            SelectionSort(numbers);
+            //SelectionSort(numbers);
 
+            //Console.WriteLine(Factorial(5));
      
+            
+
+
             Console.ReadKey();
         }
 
@@ -42,6 +46,16 @@ namespace ConsoleApp_Sorting
             Console.WriteLine(maxVal + " is the max value element");
         }
 
+
+        public static Int32 Factorial(Int32 n)
+        {
+            if (n == 1)
+                return n;
+
+            return n * Factorial(n - 1);
+        }
+
+   
         //slow
         public static void SortNumbersBubble(List<Int32> numbers)
         {
@@ -90,6 +104,14 @@ namespace ConsoleApp_Sorting
             //output sorted
             foreach (Int32 num in sortedCollection)
                 Console.WriteLine(num);
+        }
+
+
+        public static void InsertionSort(List<Int32> numbers)
+        {
+
+
+
         }
 
 
