@@ -12,28 +12,27 @@ namespace ConsoleApp_Sorting
         {
             var numbers = new List<Int32>() { 1, 23, 43, 232, 55, 31, 2, 3, 4, 32, 22, 7, 46, 332 };
             var numbers2 = new List<Int32>() { 1, 2, 3, 4, 5, 7, 8, 10, 22 };
-            var myCollection = new Dictionary<string, Int32>();
 
-            //C# has an implementation of linked list
-            var myLinkedList = new LinkedList<object>();
+            Console.WriteLine(string.Join(",", numbers.ToArray()));
+            
+            Console.WriteLine("Bubble sort results for numbers: ");
+            SortNumbersBubble(numbers);
 
-            //SortNumbersBubble(numbers);
+            Console.WriteLine("Locate max value: ");
+            FindMaxElement(numbers);
 
-            //FindMaxElement(numbers);
+            Console.WriteLine("Selection sort results for numbers: ");
+            SelectionSort(numbers);
 
-            //SelectionSort(numbers);
-
-            //Console.WriteLine(Factorial(5));
-
-            ///binary search, number will be found or not
+            //binary search, number will be found or not
+            //the items must be sorted for binary search to work
+            Console.WriteLine("Does number exist in our list: ");
             var num = 22;
             var itemExists = BinarySearch(numbers2, numbers2.Count, num);
             if (itemExists)
                 Console.WriteLine(num + " exists");
             else
                 Console.WriteLine(num + " does not exists");
-
-
 
             //wait
             Console.ReadKey();
@@ -44,7 +43,7 @@ namespace ConsoleApp_Sorting
         {
             var maxVal = numbers[0];
 
-            for (int v=0; v < numbers.Count -1; v++)
+            for (int v=0; v < numbers.Count; v++)
             {
                 if (numbers[v] > maxVal)
                 {
@@ -64,8 +63,7 @@ namespace ConsoleApp_Sorting
             return n * Factorial(n - 1);
         }
 
-   
-        //slow
+ 
         public static void SortNumbersBubble(List<Int32> numbers)
         {
             for (int write = 0; write < numbers.Count; write++)
@@ -86,7 +84,7 @@ namespace ConsoleApp_Sorting
                 Console.WriteLine(num);            
         }
 
-        //somewhat faster than bubble
+
         public static void SelectionSort(List<Int32> numbers)
         {
             var sortedCollection = new List<Int32>();
@@ -116,27 +114,14 @@ namespace ConsoleApp_Sorting
         }
 
 
-        public static void InsertionSort(List<Int32> numbers)
-        {
-            //TODO
-
-
-        }
-
-
-        public static void QuickSort(List<Int32> numbers)
-        {
-            //TODO
-
-
-        }
-
 
         public static bool BinarySearch(List<Int32> a, Int32 n, Int32 val)
         {
+            //if nothing to search
             if (n == 0)
                 return false;
 
+            //if only one item check it
             if (n == 1)
                 if (a[0] == val)
                     return true;
